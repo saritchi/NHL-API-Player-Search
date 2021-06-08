@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import $ from 'jquery'
 import PlayerBanner from '../PlayerBanner/PlayerBanner'
+import CareerStats from '../CareerStats/CareerStats'
 
 class App extends React.Component {
 
@@ -137,6 +138,7 @@ class App extends React.Component {
         <input className="playerSearch" placeholder="Enter a players name..." onChange={this.searchChangeHandler.bind(this)}></input>
 
         <PlayerBanner headshotLink={this.state.headshotLink} playerInfo={this.state.searchedPlayer}/>
+        <CareerStats stats={this.state.stats}/>
   
       </div>
     );
