@@ -11,7 +11,7 @@ class PlayerBanner extends React.Component {
                     <tbody>
                         <tr>
                             <td>
-                                <img width="250" src={this.props.headshotLink}></img>
+                                <img width="250" src={this.props.headshotLink} alt=""></img>
                             </td>
                             <td>
                                 <p>{this.props.playerInfo.fullName} {this.props.playerInfo.primaryNumber}</p>

@@ -11,7 +11,8 @@ class App extends React.Component {
       teamIds: [],
       players: [{player: "", id:""}],
       searchedPlayer: "",
-      headshotLink: ""
+      headshotLink: "",
+      stats: []
     }
 
     this.performSearch()
@@ -21,10 +22,11 @@ class App extends React.Component {
   performSearch(searchTerm) {
     const playerList = this.state.players
     playerList.forEach((player) => {
-      if(searchTerm == player.name){
+      if(searchTerm === player.name){
         console.log("Player Found")
         console.log(player.link)
-        const urlString = "https://statsapi.web.nhl.com/api/v1/people/" + player.link
+        const urlString = "https://statsapi.web.nhl.com/api/v1/people/" + player.link;
+        // Retrieve Player Headshot
         $.ajax({
           url: urlString,
           success: (searchResults) => {
@@ -32,7 +34,23 @@ class App extends React.Component {
             this.setState({searchedPlayer: searchResults.people[0], headshotLink:"http://nhl.bamcontent.com/images/headshots/current/168x168/"+ searchResults.people[0].id +".jpg"})
           },
           error: (xhr, status, err) => {
-            console.log("Player does not exist")
+            console.log("Player headshot does not exist")
+          }
+        })
+        // Retrieve player statistics
+        $.ajax({
+          url: urlString + "/stats?stats=yearByYear",
+          success: (searchResults) => {
+            const yearStats = searchResults.stats[0].splits;
+            const stats = [];
+            yearStats.forEach((year) => {
+              stats.push(year);
+            })
+            console.log(stats)
+            this.setState({stats: stats})
+          },
+          error: (xhr, status, err) => {
+            console.log("Player statistics does not exist")
           }
         })
       }
