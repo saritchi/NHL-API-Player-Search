@@ -17,6 +17,7 @@ class CareerStats extends React.Component {
                         <th>P</th>
                         <th>+/-</th>
                         <th>PIM</th>
+                        <th>PPG</th>
                         <th>PPP</th>
                         <th>SHG</th>
                         <th>SHP</th>
