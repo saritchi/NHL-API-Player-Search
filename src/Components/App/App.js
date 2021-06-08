@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import $ from 'jquery'
-import PlayerBanner from './PlayerBanner.js'
+import PlayerBanner from '../PlayerBanner/PlayerBanner'
 
 class App extends React.Component {
 

@@ -2,6 +2,9 @@ import React from 'react'
 import './PlayerBanner.css';
 
 class PlayerBanner extends React.Component {
+    // constructor(props){
+    //     super(props)
+    // }
 
     render() {
         return (
@@ -13,6 +16,8 @@ class PlayerBanner extends React.Component {
                             <td>
                                 <img width="250" src={this.props.headshotLink} alt=""></img>
                             </td>
+                        </tr>
+                        <tr>
                             <td>
                                 <p>{this.props.playerInfo.fullName} {this.props.playerInfo.primaryNumber}</p>
                             </td>
