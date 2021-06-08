@@ -1,5 +1,6 @@
 import React from 'react';
-import './CareerStats.js';
+import './CareerStats.css';
+import YearStats from '../YearStats/YearStats'
 
 class CareerStats extends React.Component {
     
@@ -34,7 +35,25 @@ class CareerStats extends React.Component {
         return (
             <table>
                 {this.renderHead()}
-                
+                {this.props.stats.map(statline => 
+                    <YearStats key={statline.season} 
+                            season={statline.season}
+                            team={statline.team.name} 
+                            gp={statline.stat.games} 
+                            g={statline.stat.goals} 
+                            a={statline.stat.assists} 
+                            p={statline.stat.points} 
+                            plusMinus={statline.stat.plusMinus} 
+                            pim={statline.stat.penaltyMinutes} 
+                            ppg={statline.stat.powerPlayGoals} 
+                            ppp={statline.stat.powerPlayPoints} 
+                            shg={statline.stat.shortHandedGoals}
+                            shp={statline.stat.shortHandedPoints}
+                            gwg={statline.stat.gameWinningGoals}
+                            otg={statline.stat.overTimeGoals}
+                            s={statline.stat.shots}
+                            sPct={statline.stat.shotPct}/>
+                )}
             </table>
         )
     }
